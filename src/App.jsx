@@ -26,9 +26,30 @@ const DEFAULT_TWEETS = [
 export default function App() {
   const [tweets, setTweets] = useState(DEFAULT_TWEETS);
 
-  const tweetsList = tweets.map(({ id, name, content, like }) => {
-    return <Tweet id={id} name={name} content={content} like={like} />;
-  });
+  const onDelete = (id) => {
+    //(current) => {
+    alert(id);
+    console.log(id);
+    //};
+    //setTweets();
+  };
 
-  return <div className="tweet-container">{tweetsList}</div>;
+  return (
+    <div className="tweet-container">
+      {tweets.map(({ id, name, content, like }) => {
+        return (
+          <Tweet
+            key={id}
+            name={name}
+            content={content}
+            like={like}
+            onDelete={() => {
+              console.log(id);
+              onDelete(id);
+            }}
+          />
+        );
+      })}
+    </div>
+  );
 }
