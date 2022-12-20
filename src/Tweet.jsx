@@ -4,7 +4,13 @@ export function Tweet({ id, name, content, like, onDelete }) {
   };
   return (
     <div className="tweet">
-      <button onClick={onDelete}>delete</button>
+      <button
+        onClick={() => {
+          onDelete(id);
+        }}
+      >
+        delete
+      </button>
       <h3>{name}</h3>
       <p>{content}</p>
       <button onClick={() => onLike()}>{like}</button>

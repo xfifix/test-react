@@ -28,8 +28,11 @@ export default function App() {
 
   const onDelete = (id) => {
     //(current) => {
-    alert(id);
-    console.log(id);
+
+    const newTab = tweets.filter((tweet) => {
+      return tweet.id != id;
+    });
+    setTweets(newTab);
     //};
     //setTweets();
   };
@@ -40,10 +43,11 @@ export default function App() {
         return (
           <Tweet
             key={id}
+            id={id}
             name={name}
             content={content}
             like={like}
-            onDelete={() => {
+            onDelete={(id) => {
               console.log(id);
               onDelete(id);
             }}
