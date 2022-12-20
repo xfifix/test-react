@@ -2,22 +2,33 @@ import { useState } from 'react';
 import { SayHello } from './SayHello';
 import { Tweet } from './Tweet';
 
+const DEFAULT_TWEETS = [
+  {
+    id: 0,
+    name: 'Romain',
+    content: 'toto',
+    like: 10,
+  },
+  {
+    id: 1,
+    name: 'Didier',
+    content: 'xx',
+    like: 100,
+  },
+  {
+    id: 2,
+    name: 'toto',
+    content: 'ddd',
+    like: 5,
+  },
+];
+
 export default function App() {
-  const [tweets, setTweets] = useState();
-  const [username, setUsername] = useState('romain');
+  const [tweets, setTweets] = useState(DEFAULT_TWEETS);
 
-  const addLetter = () => {
-    setUsername(username + 'a');
-  };
+  const tweetsList = tweets.map(({ id, name, content, like }) => {
+    return <Tweet id={id} name={name} content={content} like={like} />;
+  });
 
-  return (
-    <div className="tweet-container">
-      <p>{username}</p>
-      <button onClick={addLetter}>add letter</button>
-      <Tweet name="Romain" content="toto" like="10" />
-      <Tweet name="toto" content="toto" like="10" />
-      <Tweet name="titi" content="toto" like="10" />
-      <Tweet name="Lena" content="toto" like="10" />
-    </div>
-  );
+  return <div className="tweet-container">{tweetsList}</div>;
 }

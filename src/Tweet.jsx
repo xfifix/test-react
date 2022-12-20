@@ -1,4 +1,4 @@
-export function Tweet({ name, content, like }) {
+export function Tweet({ id, name, content, like }) {
   const onLike = () => {
     alert({ name });
   };
