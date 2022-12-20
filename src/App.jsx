@@ -27,14 +27,7 @@ export default function App() {
   const [tweets, setTweets] = useState(DEFAULT_TWEETS);
 
   const onDelete = (id) => {
-    //(current) => {
-
-    const newTab = tweets.filter((tweet) => {
-      return tweet.id != id;
-    });
-    setTweets(newTab);
-    //};
-    //setTweets();
+    setTweets((curr) => curr.filter((tweet) => tweet.id !== id));
   };
 
   return (
