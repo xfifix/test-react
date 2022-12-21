@@ -1,7 +1,4 @@
-export function Tweet({ id, name, content, like, onDelete }) {
-  const onLike = () => {
-    alert({ name });
-  };
+export function Tweet({ id, name, content, like, onDelete, onLike }) {
   return (
     <div className="tweet">
       <button
@@ -13,7 +10,7 @@ export function Tweet({ id, name, content, like, onDelete }) {
       </button>
       <h3>{name}</h3>
       <p>{content}</p>
-      <button onClick={() => onLike()}>{like}</button>
+      <button onClick={() => onLike(id)}>{like}</button>
     </div>
   );
 }
